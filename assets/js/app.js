@@ -36,10 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // JS para cargar los componentes que se repiten como el navbar y el footer
 
+// detectar si estamos dentro de /pages
+const baseRuta = window.location.pathname.includes("/pages/") ? "../" : "";
+
 const cargarComponente = (ruta, elemento) => {
-    fetch(ruta)
-        .then((res) => res.text())
-        .then((data) => {
+    fetch(baseRuta + ruta)
+        .then(res => res.text())
+        .then(data => {
             document.querySelector(elemento).innerHTML = data;
 
             if (elemento === "#navbar") {
@@ -49,8 +52,8 @@ const cargarComponente = (ruta, elemento) => {
         });
 };
 
-cargarComponente("../assets/components/navbar.html", "#navbar");
-cargarComponente("../assets/components/footer.html", "#footer");
+cargarComponente("assets/components/navbar.html", "#navbar");
+cargarComponente("assets/components/footer.html", "#footer");
 
 //Marcar un componente como activo
 
