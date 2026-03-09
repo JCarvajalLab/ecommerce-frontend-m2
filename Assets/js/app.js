@@ -37,9 +37,9 @@ const cargarComponente = (ruta, elemento) => {
         .then((data) => {
             document.querySelector(elemento).innerHTML = data;
 
-            // ejecutar después de insertar el navbar
             if (elemento === "#navbar") {
                 marcarLinkActivo();
+                actualizarContadorCarrito();
             }
         });
 };
@@ -118,7 +118,7 @@ contenedor.innerHTML += `
             </div>
         </div>
         <div class="card-footer d-flex justify-content-between">
-            <button class="btn btn-primary btn-sm">
+            <button class="btn btn-primary btn-sm" onclick="agregarAlCarrito(${producto.id})">
             Agregar al carrito
             </button>
         </div>
@@ -176,7 +176,7 @@ $${producto.precio}
 
 <div class="card-footer d-flex justify-content-between">
 
-<button class="btn btn-primary btn-sm">
+<button class="btn btn-primary btn-sm" onclick="agregarAlCarrito(${producto.id})">
 Add to Cart
 </button>
 
