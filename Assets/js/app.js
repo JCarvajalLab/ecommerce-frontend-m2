@@ -44,8 +44,8 @@ const cargarComponente = (ruta, elemento) => {
         });
 };
 
-cargarComponente("/assets/components/navbar.html", "#navbar");
-cargarComponente("/assets/components/footer.html", "#footer");
+cargarComponente("../assets/components/navbar.html", "#navbar");
+cargarComponente("../assets/components/footer.html", "#footer");
 
 //Marcar un componente como activo
 
@@ -86,107 +86,196 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-//Productos cargados en productos.html
-
+// ────────────────────────────────────────────
+//  Productos cargados en productos.html
+// ────────────────────────────────────────────
 const contenedor = document.getElementById("contenedor-productos");
 
 if (contenedor) {
-
-productos.forEach((producto) => {
-
-contenedor.innerHTML += `
-<div class="col-md-4">
-    <div class="card h-100">
-        <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
-        <div class="card-body">
-            <h5 class="card-title">${producto.nombre}</h5>
-            <p class="card-text">
-            ${producto.descripcion}
-            </p>
-            <div class="d-flex justify-content-between align-items-center">
-                <span class="h5 mb-0">
-                $${producto.precio}
-                </span>
-                <div>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-half text-warning"></i>
-                    <small class="text-muted">(4.5)</small>
+    productos.forEach((producto) => {
+        contenedor.innerHTML += `
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+                <div class="card-body">
+                    <h5 class="card-title">${producto.nombre}</h5>
+                    <p class="card-text">${producto.descripcion}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="h5 mb-0">$${producto.precio.toLocaleString("es-CL")}</span>
+                        <div>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-half text-warning"></i>
+                            <small class="text-muted">(4.5)</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <button class="btn btn-primary btn-sm" onclick="agregarAlCarrito(${producto.id})">
+                        Agregar al carrito
+                    </button>
+                    <a href="/pages/descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
+                        Ver más
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="card-footer d-flex justify-content-between">
-            <button class="btn btn-primary btn-sm" onclick="agregarAlCarrito(${producto.id})">
-            Agregar al carrito
-            </button>
-        </div>
-    </div>
-</div>
-`;
-
-});
-
+        `;
+    });
 }
 
-// Productos destacados cargados a index.html desde el Arraylist
-
-const contenedorDestacados = document.getElementById("pDestacados")
+// ────────────────────────────────────────────
+//  Productos destacados cargados en index.html
+// ────────────────────────────────────────────
+const contenedorDestacados = document.getElementById("pDestacados");
 
 if (contenedorDestacados) {
+    const productosDestacados = productos.filter(producto => producto.destacado);
 
-const productosDestacados = productos.filter(producto => producto.destacado)
+    productosDestacados.forEach(producto => {
+        contenedorDestacados.innerHTML += `
+        <div class="col-12 col-sm-6 col-md-4">
+            <div class="card h-100">
+                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+                <div class="card-body">
+                    <h5 class="card-title">${producto.nombre}</h5>
+                    <p class="card-text">${producto.descripcion}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="h5 mb-0">$${producto.precio.toLocaleString("es-CL")}</span>
+                        <div>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <button class="btn btn-primary btn-sm" onclick="agregarAlCarrito(${producto.id})">
+                        Agregar al carrito
+                    </button>
+                    <a href="/pages/descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
+                        Ver más
+                    </a>
+                </div>
+            </div>
+        </div>
+        `;
+    });
+}
 
-productosDestacados.forEach(producto => {
+// ────────────────────────────────────────────
+//  Descripción del producto - descripcion.html
+// ────────────────────────────────────────────
+const seccionDescripcion = document.getElementById("detalle-producto");
 
-contenedorDestacados.innerHTML += `
-<div class="col-12 col-sm-6 col-md-4">
+if (seccionDescripcion) {
+    const params = new URLSearchParams(window.location.search);
+    const idProducto = parseInt(params.get("id"));
+    const producto = productos.find((p) => p.id === idProducto);
 
-<div class="card h-100">
+    if (!producto) {
+        seccionDescripcion.innerHTML = `
+            <div class="text-center py-5">
+                <i class="bi bi-exclamation-circle" style="font-size: 3rem; opacity: .4;"></i>
+                <p class="mt-3 text-muted">Producto no encontrado.</p>
+                <a href="/pages/productos.html" class="btn btn-primary mt-2">Ver productos</a>
+            </div>
+        `;
+    } else {
+        seccionDescripcion.innerHTML = `
+            <div class="row">
 
-<img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+                <!-- Imagen del producto -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <img 
+                            src="${producto.imagen || 'https://via.placeholder.com/600x400?text=Sin+imagen'}" 
+                            class="card-img" 
+                            alt="${producto.nombre}"
+                        />
+                    </div>
+                </div>
 
-<div class="card-body">
+                <!-- Detalle del producto -->
+                <div class="col-md-6">
 
-<h5 class="card-title">${producto.nombre}</h5>
+                    <h1 class="h2 mb-3">${producto.nombre}</h1>
 
-<p class="card-text">
-${producto.descripcion}
-</p>
+                    <!-- Precio -->
+                    <div class="mb-3">
+                        <span class="h4 me-2">$${producto.precio.toLocaleString("es-CL")}</span>
+                    </div>
 
-<div class="d-flex justify-content-between align-items-center">
+                    <!-- Reviews (estáticas) -->
+                    <div class="mb-3">
+                        <div class="d-flex align-items-center">
+                            <div class="text-warning me-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                            <span class="text-muted">(128 reseñas)</span>
+                        </div>
+                    </div>
 
-<span class="h5 mb-0">
-$${producto.precio}
-</span>
+                    <!-- Descripción -->
+                    <p class="mb-4">${producto.descripcion}</p>
 
-<div>
-<i class="bi bi-star-fill text-warning"></i>
-<i class="bi bi-star-fill text-warning"></i>
-<i class="bi bi-star-fill text-warning"></i>
-<i class="bi bi-star-fill text-warning"></i>
-<i class="bi bi-star-fill text-warning"></i>
+                    <!-- Color (visual, sin funcionalidad) -->
+                    <div class="mb-4">
+                        <h6 class="mb-2">Color</h6>
+                        <div class="btn-group" role="group">
+                            <input type="radio" class="btn-check" name="color" id="color-1" checked>
+                            <label class="btn btn-outline-secondary" for="color-1">Negro</label>
+                            <input type="radio" class="btn-check" name="color" id="color-2">
+                            <label class="btn btn-outline-secondary" for="color-2">Blanco</label>
+                            <input type="radio" class="btn-check" name="color" id="color-3">
+                            <label class="btn btn-outline-secondary" for="color-3">Gris</label>
+                        </div>
+                    </div>
 
-</div>
+                    <!-- Cantidad -->
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center gap-2">
+                            <label class="mb-0">Cantidad:</label>
+                            <select class="form-select w-auto" id="cantidad-descripcion">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
 
-</div>
+                    <!-- Botones -->
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" onclick="agregarDesdeDescripcion(${producto.id})">
+                            <i class="bi bi-cart-plus me-2"></i>Agregar al carrito
+                        </button>
+                        <a href="/pages/productos.html" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Volver a productos
+                        </a>
+                    </div>
 
-</div>
+                </div>
+            </div>
+        `;
+    }
+}
 
-<div class="card-footer d-flex justify-content-between">
+// Agregar al carrito respetando la cantidad seleccionada en descripcion.html
+function agregarDesdeDescripcion(idProducto) {
+    const selectCantidad = document.getElementById("cantidad-descripcion");
+    const cantidad = selectCantidad ? parseInt(selectCantidad.value) : 1;
 
-<button class="btn btn-primary btn-sm" onclick="agregarAlCarrito(${producto.id})">
-Add to Cart
-</button>
-
-</div>
-
-</div>
-
-</div>
-`
-
-})
-
+    for (let i = 0; i < cantidad; i++) {
+        agregarAlCarrito(idProducto);
+    }
 }
