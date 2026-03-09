@@ -51,126 +51,8 @@
             <i class="bi bi-chevron-left"></i>
           </button>
           <div class="carousel-container">
-            <div class="row g-4 flex-nowrap overflow-hidden" id="productCarousel">
-              <!-- CARD 1 -->
-              <div class="col-12 col-sm-6 col-md-4">
-                <div class="card">
-                  <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" class="card-img-top"
-                    alt="Product Image" />
-                  <div class="card-body">
-                    <h5 class="card-title">Product Name 1</h5>
-                    <p class="card-text">
-                      Short product description goes here.
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <span class="h5 mb-0">$99.99</span>
-                      <div>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-half text-warning"></i>
-                        <small class="text-muted">(4.8)</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-footer d-flex justify-content-between">
-                    <button class="btn btn-primary btn-sm">
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CARD 2 -->
-              <div class="col-12 col-sm-6 col-md-4">
-                <div class="card">
-                  <img src="https://images.unsplash.com/photo-1539185441755-769473a23570" class="card-img-top"
-                    alt="Product Image" />
-                  <div class="card-body">
-                    <h5 class="card-title">Product Name 2</h5>
-                    <p class="card-text">
-                      Short product description goes here.
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <span class="h5 mb-0">$99.99</span>
-                      <div>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <small class="text-muted">(5.0)</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-footer d-flex justify-content-between">
-                    <button class="btn btn-primary btn-sm">
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CARD 3 -->
-              <div class="col-12 col-sm-6 col-md-4">
-                <div class="card">
-                  <img src="https://images.unsplash.com/photo-1626947346165-4c2288dadc2a" class="card-img-top"
-                    alt="Product Image" />
-                  <div class="card-body">
-                    <h5 class="card-title">Product Name 3</h5>
-                    <p class="card-text">
-                      Short product description goes here.
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <span class="h5 mb-0">$99.99</span>
-                      <div>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-half text-warning"></i>
-                        <small class="text-muted">(4.9)</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-footer d-flex justify-content-between">
-                    <button class="btn btn-primary btn-sm">
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CARD 4 (extra para probar scroll) -->
-              <div class="col-12 col-sm-6 col-md-4">
-                <div class="card">
-                  <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5" class="card-img-top"
-                    alt="Product Image" />
-                  <div class="card-body">
-                    <h5 class="card-title">Product Name 4</h5>
-                    <p class="card-text">
-                      Short product description goes here.
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <span class="h5 mb-0">$99.99</span>
-                      <div>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <small class="text-muted">(5.0)</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-footer d-flex justify-content-between">
-                    <button class="btn btn-primary btn-sm">
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </div>
+            <div class="row g-4 flex-nowrap overflow-hidden" id="pDestacados">
+              <!-- Productos destacados desde el ArrayList -->
             </div>
           </div>
           <button class="btn btn-light carousel-btn-right" aria-label="productos izquierda">
@@ -182,9 +64,12 @@
   </main>
   <hr class="featurette-divider" />
   <!-- FOOTER desde el componente -->
-  <div id="footer">
-    <!-- "assets/components/footer.html" -->
-  </div>
+  <footer class="mt-auto">
+    <div id="footer">
+      <!-- "assets/components/footer.html" -->
+    </div>
+  </footer>
+
   <!-- Script JS Boostrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -192,6 +77,8 @@
   <!-- script de jQuery -->
   <!-- <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script> -->
   <!-- script de JS local -->
+  <script src="/assets/js/productos.js"></script>
+  <script src="/assets/js/carrito.js"></script>
   <script src="/assets/js/app.js"></script>
 </body>
 
