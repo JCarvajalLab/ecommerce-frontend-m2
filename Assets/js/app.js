@@ -1,15 +1,20 @@
 // aplicar tema oscuro
 const temaOscuro = () => {
     document.querySelector("body").setAttribute("data-bs-theme", "dark");
-    document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
     localStorage.setItem("tema", "dark");
+
+    // El ícono puede no existir aún si el navbar no cargó
+    const icon = document.querySelector("#dl-icon");
+    if (icon) icon.setAttribute("class", "bi bi-sun-fill");
 };
 
 // aplicar tema claro
 const temaClaro = () => {
     document.querySelector("body").setAttribute("data-bs-theme", "light");
-    document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
     localStorage.setItem("tema", "light");
+
+    const icon = document.querySelector("#dl-icon");
+    if (icon) icon.setAttribute("class", "bi bi-moon-fill");
 };
 
 // cambiar tema
@@ -66,24 +71,24 @@ document.addEventListener("DOMContentLoaded", () => {
     marcarLinkActivo();
 });
 
-// carrusel
-
+// ────────────────────────────────────────────
+//  Carrusel — solo existe en index.html
+// ────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.getElementById("pDestacados");
     const btnRight = document.querySelector(".carousel-btn-right");
-    const btnLeft = document.querySelector(".carousel-btn-left");
+    const btnLeft  = document.querySelector(".carousel-btn-left");
 
-    btnRight.addEventListener("click", () => {
-        const firstCard = carousel.firstElementChild;
+    // Verificar que existen antes de agregar eventos
+    if (carousel && btnRight && btnLeft) {
+        btnRight.addEventListener("click", () => {
+            carousel.appendChild(carousel.firstElementChild);
+        });
 
-        carousel.appendChild(firstCard);
-    });
-
-    btnLeft.addEventListener("click", () => {
-        const lastCard = carousel.lastElementChild;
-
-        carousel.prepend(lastCard);
-    });
+        btnLeft.addEventListener("click", () => {
+            carousel.prepend(carousel.lastElementChild);
+        });
+    }
 });
 
 // ────────────────────────────────────────────
@@ -278,4 +283,17 @@ function agregarDesdeDescripcion(idProducto) {
     for (let i = 0; i < cantidad; i++) {
         agregarAlCarrito(idProducto);
     }
+}
+
+// ────────────────────────────────────────────
+//  Formulario contacto — solo existe en contactos.html
+// ────────────────────────────────────────────
+const formularioContacto = document.getElementById("formulario-contacto");
+
+if (formularioContacto) {
+    formularioContacto.addEventListener("submit", function (e) {
+        e.preventDefault();
+        new bootstrap.Modal(document.getElementById("modalContacto")).show();
+        this.reset();
+    });
 }
