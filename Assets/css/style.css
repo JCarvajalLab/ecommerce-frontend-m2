@@ -146,3 +146,50 @@ footer {
             padding: 4px 8px;
             border-radius: 6px;
         }
+
+
+        /* index */
+
+.carousel-container {
+  overflow: hidden;
+}
+
+#productCarousel{
+ overflow:hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
+#productCarousel::-webkit-scrollbar{
+  display:none;
+}
+
+#productCarousel .col-md-4{
+  flex: 0 0 auto;
+  
+}
+
+.carousel-btn-left,
+.carousel-btn-right {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.carousel-btn-left {
+  left: -25px;
+}
+
+.carousel-btn-right {
+  right: -25px;
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
