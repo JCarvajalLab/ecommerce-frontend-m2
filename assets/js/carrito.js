@@ -129,7 +129,7 @@ function cargarCarrito() {
             <div class="text-center py-5">
                 <i class="bi bi-cart-x" style="font-size: 3rem; opacity: .4;"></i>
                 <p class="mt-3 text-muted">Tu carrito está vacío.</p>
-                <a href="/pages/productos.html" class="btn btn-primary mt-2">Ver productos</a>
+                <a href="/pages/productos.html" class="btn btn-success mt-2">Ver productos</a>
             </div>
         `;
         actualizarResumen();

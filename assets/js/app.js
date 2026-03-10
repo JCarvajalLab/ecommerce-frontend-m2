@@ -121,7 +121,7 @@ if (contenedor) {
                     </div>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
-                    <button class="btn btn-primary btn-sm" onclick="agregarAlCarrito(${producto.id})">
+                    <button class="btn btn-success btn-sm" onclick="agregarAlCarrito(${producto.id})">
                         Agregar al carrito
                     </button>
                     <a href="/pages/descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
@@ -162,7 +162,7 @@ if (contenedorDestacados) {
                     </div>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
-                    <button class="btn btn-primary btn-sm" onclick="agregarAlCarrito(${producto.id})">
+                    <button class="btn btn-success btn-sm" onclick="agregarAlCarrito(${producto.id})">
                         Agregar al carrito
                     </button>
                     <a href="/pages/descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
@@ -264,7 +264,7 @@ if (seccionDescripcion) {
 
                     <!-- Botones -->
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary" onclick="agregarDesdeDescripcion(${producto.id})">
+                        <button class="btn btn-success" onclick="agregarDesdeDescripcion(${producto.id})">
                             <i class="bi bi-cart-plus me-2"></i>Agregar al carrito
                         </button>
                         <a href="/pages/productos.html" class="btn btn-outline-secondary">

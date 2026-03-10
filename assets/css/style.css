@@ -1,176 +1,93 @@
-/* =====================
-    GLOBAL (todas las páginas)
-===================== */
+/* =========================
+    PALETA DE COLORES
+========================= */
+
+:root{
+  --color-fondo: #F5F5F5;
+  --color-navbar: #1D0B41;
+  --color-texto: #000000;
+  --color-texto-navbar: #ffffff;
+  --color-jumbotron: #3b1b7a;
+}
+
+/* =========================
+    GLOBAL
+========================= */
+
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
 }
 
 main {
-    flex: 1;
+  flex: 1;
 }
 
-/* Footer de la pagina web */
+/* =========================
+    NAVBAR
+========================= */
+
+.navbar {
+  background-color: var(--color-navbar) !important;
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+  color: var(--color-texto-navbar) !important;
+}
+
+.navbar .nav-link:hover {
+  opacity: 0.8;
+}
+
+/* =========================
+    FOOTER
+========================= */
+
 footer {
-    /* border-top: 1px solid #ccc; */
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
+  background-color: var(--color-navbar);
+  color: var(--color-texto-navbar);
+  padding: 20px 0;
 }
 
-/* CSS CONTACTOS MODIFICAR */
-@import url(//fonts.googleapis.com/css?family=Montserrat:300,400,500);
-.contact3 {
-  font-family: "Montserrat", sans-serif;
-  color: #8d97ad;
-  font-weight: 300;
+footer a {
+  color: var(--color-texto-navbar);
 }
 
-.contact3 h1,
-.contact3 h2,
-.contact3 h3,
-.contact3 h4,
-.contact3 h5,
-.contact3 h6 {
-  color: #3e4555;
+footer a:hover {
+  opacity: 0.8;
 }
 
-.contact3 .font-weight-medium {
-  font-weight: 500;
+footer .nav-link{
+  color: var(--color-texto-navbar);
 }
 
-.contact3 .card-shadow {
-  -webkit-box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
-  box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
+/* =========================
+    INDEX - CAROUSEL PRODUCTOS
+========================= */
+
+.index #jumbotron{
+  background-color: var(--color-jumbotron);
+  color: var(--color-texto-navbar);
 }
 
-.contact3 .btn-danger-gradiant {
-  background: #ff4d7e;
-  background: -webkit-linear-gradient(legacy-direction(to right), #ff4d7e 0%, #ff6a5b 100%);
-  background: -webkit-gradient(linear, left top, right top, from(#ff4d7e), to(#ff6a5b));
-  background: -webkit-linear-gradient(left, #ff4d7e 0%, #ff6a5b 100%);
-  background: -o-linear-gradient(left, #ff4d7e 0%, #ff6a5b 100%);
-  background: linear-gradient(to right, #ff4d7e 0%, #ff6a5b 100%);
-}
 
-.contact3 .btn-danger-gradiant:hover {
-  background: #ff6a5b;
-  background: -webkit-linear-gradient(legacy-direction(to right), #ff6a5b 0%, #ff4d7e 100%);
-  background: -webkit-gradient(linear, left top, right top, from(#ff6a5b), to(#ff4d7e));
-  background: -webkit-linear-gradient(left, #ff6a5b 0%, #ff4d7e 100%);
-  background: -o-linear-gradient(left, #ff6a5b 0%, #ff4d7e 100%);
-  background: linear-gradient(to right, #ff6a5b 0%, #ff4d7e 100%);
-}
-
-/* CSS CARRITO DE COMPRAS MODIFICAR */
-        .cart-wrapper {
-            /* background-color: #f8f9fa; */
-            min-height: 100vh;
-            padding: 40px 0;
-        }
-
-        .product-card {
-            /* background: white; */
-            border-radius: 12px;
-            transition: transform 0.2s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .quantity-input {
-            width: 60px;
-            text-align: center;
-            border: 1px solid #dee2e6;
-            border-radius: 6px;
-        }
-
-        .product-image {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .summary-card {
-            /* background: white; */
-            border-radius: 12px;
-            position: sticky;
-            top: 20px;
-        }
-
-        .checkout-btn {
-            background: linear-gradient(135deg, #6366f1, #4f46e5);
-            border: none;
-            transition: transform 0.2s;
-        }
-
-        .checkout-btn:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, #4f46e5, #4338ca);
-        }
-
-        .remove-btn {
-            color: #dc2626;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .remove-btn:hover {
-            color: #991b1b;
-        }
-
-        .quantity-btn {
-            width: 28px;
-            height: 28px;
-            padding: 0;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            background: #f3f4f6;
-            border: none;
-            transition: all 0.2s;
-        }
-
-        .quantity-btn:hover {
-            background: #e5e7eb;
-        }
-
-        .discount-badge {
-            background: #dcfce7;
-            color: #166534;
-            font-size: 0.875rem;
-            padding: 4px 8px;
-            border-radius: 6px;
-        }
-
-
-        /* index */
+/* index jumbotron */
 
 .carousel-container {
   overflow: hidden;
 }
 
-#productCarousel{
- overflow:hidden;
+#pDestacados {
+  overflow: hidden;
   scroll-behavior: smooth;
-  scrollbar-width: none;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
 }
 
-
-
-#productCarousel::-webkit-scrollbar{
-  display:none;
-}
-
-#productCarousel .col-md-4{
-  flex: 0 0 auto;
-  
+#pDestacados::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel-btn-left,
@@ -192,4 +109,133 @@ footer {
 .card-img-top {
   height: 220px;
   object-fit: cover;
+}
+
+/* =========================
+    PRODUCTOS
+========================= */
+
+/* =========================
+    DETALLES 
+========================= */
+
+/* =========================
+    CARRITO
+========================= */
+
+.cart-wrapper {
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+.product-card {
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.quantity-input {
+  width: 60px;
+  text-align: center;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+}
+
+.quantity-btn {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: #f3f4f6;
+  border: none;
+  transition: all 0.2s;
+}
+
+.quantity-btn:hover {
+  background: #e5e7eb;
+}
+
+.summary-card {
+  border-radius: 12px;
+  position: sticky;
+  top: 20px;
+}
+
+.checkout-btn {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  border: none;
+  transition: transform 0.2s;
+}
+
+.checkout-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+}
+
+.remove-btn {
+  color: #dc2626;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.remove-btn:hover {
+  color: #991b1b;
+}
+
+.discount-badge {
+  background: #dcfce7;
+  color: #166534;
+  font-size: 0.875rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* =========================
+    CONTACTO
+========================= */
+
+@import url("//fonts.googleapis.com/css?family=Montserrat:300,400,500");
+
+.contact3 {
+  font-family: "Montserrat", sans-serif;
+  color: #8d97ad;
+  font-weight: 300;
+}
+
+.contact3 h1,
+.contact3 h2,
+.contact3 h3,
+.contact3 h4,
+.contact3 h5,
+.contact3 h6 {
+  color: #3e4555;
+}
+
+.font-weight-medium {
+  font-weight: 500;
+}
+
+.card-shadow {
+  box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
+}
+
+.btn-danger-gradiant {
+  background: linear-gradient(to right, #ff4d7e 0%, #ff6a5b 100%);
+}
+
+.btn-danger-gradiant:hover {
+  background: linear-gradient(to right, #ff6a5b 0%, #ff4d7e 100%);
 }
