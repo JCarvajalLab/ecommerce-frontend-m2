@@ -132,6 +132,12 @@ if (contenedor) {
         </div>
         `;
     });
+
+    //Se modifico este codigo, para githubpages
+//     </button>
+// <a href="/pages/descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
+//     Ver más
+// </a>
 }
 
 // ────────────────────────────────────────────
@@ -165,7 +171,7 @@ if (contenedorDestacados) {
                     <button class="btn btn-success btn-sm" onclick="agregarAlCarrito(${producto.id})">
                         Agregar al carrito
                     </button>
-                    <a href="/pages/descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
+                    <a href="pages/descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
                         Ver más
                     </a>
                 </div>
@@ -174,6 +180,11 @@ if (contenedorDestacados) {
         `;
     });
 }
+
+// Se modifica este codigo para githubpages
+// <a href="/pages/descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
+// Ver más
+// </a>
 
 // ────────────────────────────────────────────
 //  Descripción del producto - descripcion.html
@@ -267,7 +278,7 @@ if (seccionDescripcion) {
                         <button class="btn btn-success" onclick="agregarDesdeDescripcion(${producto.id})">
                             <i class="bi bi-cart-plus me-2"></i>Agregar al carrito
                         </button>
-                        <a href="/pages/productos.html" class="btn btn-outline-secondary">
+                        <a href="pages/productos.html" class="btn btn-outline-secondary">
                             <i class="bi bi-arrow-left me-2"></i>Volver a productos
                         </a>
                     </div>
@@ -277,6 +288,10 @@ if (seccionDescripcion) {
         `;
     }
 }
+// Se modifica codigo por githubpages 1
+// <a href="/pages/productos.html" class="btn btn-outline-secondary">
+//     <i class="bi bi-arrow-left me-2"></i>Volver a productos
+// </a>
 
 // Agregar al carrito respetando la cantidad seleccionada en descripcion.html
 function agregarDesdeDescripcion(idProducto) {
