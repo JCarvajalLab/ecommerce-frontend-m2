@@ -124,7 +124,7 @@ if (contenedor) {
                     <button class="btn btn-success btn-sm" onclick="agregarAlCarrito(${producto.id})">
                         Agregar al carrito
                     </button>
-                    <a href="/pages/descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
+                    <a href="pages/descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
                         Ver más
                     </a>
                 </div>
