@@ -124,7 +124,7 @@ if (contenedor) {
                     <button class="btn btn-success btn-sm" onclick="agregarAlCarrito(${producto.id})">
                         Agregar al carrito
                     </button>
-                    <a href="descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
+                    <a href="./descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
                         Ver más
                     </a>
                 </div>
@@ -278,7 +278,7 @@ if (seccionDescripcion) {
                         <button class="btn btn-success" onclick="agregarDesdeDescripcion(${producto.id})">
                             <i class="bi bi-cart-plus me-2"></i>Agregar al carrito
                         </button>
-                        <a href="productos.html" class="btn btn-outline-secondary">
+                        <a href="./productos.html" class="btn btn-outline-secondary">
                             <i class="bi bi-arrow-left me-2"></i>Volver a productos
                         </a>
                     </div>
