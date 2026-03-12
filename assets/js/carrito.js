@@ -244,9 +244,39 @@ function mostrarModal(producto) {
 }
 
 // ────────────────────────────────────────────
+//  PROCESAR PAGO
+// ────────────────────────────────────────────
+function procesarPago() {
+
+    if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+    }
+
+    const total = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
+
+    const confirmar = confirm(
+        `El total de tu compra es $${total.toLocaleString("es-CL")}.\n\n¿Deseas proceder con el pago?`
+    );
+
+    if (!confirmar) return;
+
+    alert(`Compra realizada con éxito 🎉\n\nTotal pagado: $${total.toLocaleString("es-CL")}`);
+
+    // usar tu función existente
+    vaciarCarrito();
+}
+
+
+// ────────────────────────────────────────────
 //  INICIALIZACIÓN AL CARGAR EL DOM
 // ────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
     actualizarContadorCarrito();
     cargarCarrito();
+    
+    const botonPagar = document.getElementById("btn-pagar");
+    if (botonPagar) {
+        botonPagar.addEventListener("click", procesarPago);
+    }
 });
