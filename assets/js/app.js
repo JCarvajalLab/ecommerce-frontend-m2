@@ -124,7 +124,7 @@ if (contenedor) {
                     <button class="btn btn-success btn-sm" onclick="agregarAlCarrito(${producto.id})">
                         Agregar al carrito
                     </button>
-                    <a href="pages/descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
+                    <a href="/descripcion.html?id=${producto.id}" class="btn btn-outline-secondary btn-sm">
                         Ver más
                     </a>
                 </div>
@@ -201,7 +201,7 @@ if (seccionDescripcion) {
             <div class="text-center py-5">
                 <i class="bi bi-exclamation-circle" style="font-size: 3rem; opacity: .4;"></i>
                 <p class="mt-3 text-muted">Producto no encontrado.</p>
-                <a href="/pages/productos.html" class="btn btn-primary mt-2">Ver productos</a>
+                <a href="pages/productos.html" class="btn btn-primary mt-2">Ver productos</a>
             </div>
         `;
     } else {
