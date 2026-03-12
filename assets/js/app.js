@@ -33,6 +33,36 @@ document.addEventListener("DOMContentLoaded", () => {
         temaClaro();
     }
 });
+// Redirecciones
+
+const corregirRutasNavbar = () => {
+
+    const enPages = window.location.pathname.includes("/pages/");
+
+    if (enPages) {
+
+        const brand = document.querySelector(".navbar-brand");
+        if (brand) brand.href = "../index.html";
+
+        const links = document.querySelectorAll(".nav-link");
+
+        links.forEach(link => {
+
+            if (link.getAttribute("href").startsWith("pages/")) {
+                link.href = "../" + link.getAttribute("href");
+            }
+
+            if (link.getAttribute("href") === "index.html") {
+                link.href = "../index.html";
+            }
+
+        });
+
+    }
+
+};
+
+
 
 // JS para cargar los componentes que se repiten como el navbar y el footer
 
@@ -46,6 +76,7 @@ const cargarComponente = (ruta, elemento) => {
             document.querySelector(elemento).innerHTML = data;
 
             if (elemento === "#navbar") {
+                corregirRutasNavbar();
                 marcarLinkActivo();
                 actualizarContadorCarrito();
             }
@@ -201,7 +232,7 @@ if (seccionDescripcion) {
             <div class="text-center py-5">
                 <i class="bi bi-exclamation-circle" style="font-size: 3rem; opacity: .4;"></i>
                 <p class="mt-3 text-muted">Producto no encontrado.</p>
-                <a href="pages/productos.html" class="btn btn-primary mt-2">Ver productos</a>
+                <a href="../pages/productos.html" class="btn btn-primary mt-2">Ver productos</a>
             </div>
         `;
     } else {
